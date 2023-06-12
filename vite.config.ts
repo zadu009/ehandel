@@ -7,8 +7,7 @@ const config: UserConfig = {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	optimizeDeps: {
-		include: ['svelte-carousel'],
-		exclude: ['lodash.clonedeep']
+		include: ['svelte-carousel']
 	}
 };
 
