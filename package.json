@@ -42,7 +42,7 @@
 	"dependencies": {
 		"@stripe/stripe-js": "^1.48.0",
 		"@types/lodash.clonedeep": "^4.5.7",
-		"pocketbase": "^0.12.1",
+		"pocketbase": "^0.16.5",
 		"svelte-markdown": "^0.2.3",
 		"tw-elements": "1.0.0-beta1"
 	}
