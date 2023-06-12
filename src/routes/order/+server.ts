@@ -1,7 +1,6 @@
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
-import { SECRET_STRIPE_KEY } from '$env/static/private';
 import Stripe from 'stripe';
 import type { CartItem } from '$lib/stores';
 
@@ -32,7 +31,7 @@ export const POST = (async ({ request }) => {
 	);
 
 	try {
-		const stripe = new Stripe(SECRET_STRIPE_KEY, {
+		const stripe = new Stripe('key123', {
 			apiVersion: '2022-11-15'
 		});
 
