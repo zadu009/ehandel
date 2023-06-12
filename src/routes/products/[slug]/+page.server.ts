@@ -1,6 +1,5 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import cloneDeep from 'lodash.clonedeep';
 
 export const load = (async ({ params, locals }) => {
 	try {
