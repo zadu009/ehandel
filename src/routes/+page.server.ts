@@ -1,6 +1,5 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import cloneDeep from 'lodash.clonedeep';
 
 export const load = (async ({ locals }) => {
 	try {
@@ -15,9 +14,8 @@ export const load = (async ({ locals }) => {
 		]);
 
 		return {
-			
-			showcase: JSON.parse(JSON.stringify(cloneDeep(showcaseRecords))),
-			carousels: JSON.parse(JSON.stringify(cloneDeep(carouselsRecords)))
+			showcase: JSON.parse(JSON.stringify(showcaseRecords)),
+			carousels: JSON.parse(JSON.stringify(carouselsRecords))
 		};
 	} catch (e) {
 		console.log(`Couldnt load page /`);

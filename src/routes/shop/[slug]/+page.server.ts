@@ -1,6 +1,5 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import cloneDeep from 'lodash.clonedeep';
 
 export const load = (async ({ params, locals }) => {
 	try {
@@ -9,7 +8,7 @@ export const load = (async ({ params, locals }) => {
 				sort: '-created'
 			});
 
-			return JSON.parse(JSON.stringify(cloneDeep(productsRecords)));
+			return JSON.parse(JSON.stringify(productsRecords));
 		}
 
 		const category = await locals.pb

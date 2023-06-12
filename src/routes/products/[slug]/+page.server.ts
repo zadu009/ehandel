@@ -10,7 +10,7 @@ export const load = (async ({ params, locals }) => {
 				expand: 'related_products'
 			});
 
-		return JSON.parse(JSON.stringify(cloneDeep(productRecord)));
+		return JSON.parse(JSON.stringify(productRecord));
 					
 	} catch (e) {
 		console.log(`Couldnt load page /shop/${params.slug}`);
