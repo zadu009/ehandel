@@ -1,13 +1,15 @@
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
+import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
+import { SECRET_STRIPE_KEY } from '$env/static/private';
 import Stripe from 'stripe';
 import type { CartItem } from '$lib/stores';
 
 export const POST = (async ({ request }) => {
 	const products: CartItem[] = await request.json();
 
-	const pb = new PocketBase('https://ehandelpb.fly.dev');
+	const pb = new PocketBase(PUBLIC_POCKETBASE_URL);
 
 	const line_items = await Promise.all(
 		products.map(async (product: CartItem) => {
@@ -21,7 +23,7 @@ export const POST = (async ({ request }) => {
 					currency: 'usd',
 					product_data: {
 						name: item.name,
-						images: [`https://ehandelpb.fly.dev/api/files/products/${item.id}/${item.images[0]}`]
+						images: [`${PUBLIC_POCKETBASE_URL}/api/files/products/${item.id}/${item.images[0]}`]
 					},
 					unit_amount: roundedNumber
 				},
@@ -31,7 +33,7 @@ export const POST = (async ({ request }) => {
 	);
 
 	try {
-		const stripe = new Stripe('key123', {
+		const stripe = new Stripe(SECRET_STRIPE_KEY, {
 			apiVersion: '2022-11-15'
 		});
 
