@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
-import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
+import { PUBLIC_POCKETBASE_URL } from '$env/static/private';
 import { SECRET_STRIPE_KEY } from '$env/static/private';
 import Stripe from 'stripe';
 import type { CartItem } from '$lib/stores';
