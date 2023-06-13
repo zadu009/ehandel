@@ -10,7 +10,7 @@
 	let carousel: any; // for calling methods of the carousel instance
 </script>
 
-<div class="w-full aspect-[1.9/3] md:aspect-[16/7.7]">
+<div class="w-full aspect-[1.9/3] md:aspect-[16/6]">
 	{#if browser}
 		<Carousel
 			let:loaded
@@ -38,7 +38,7 @@
 					{#if loaded.includes(imageIndex)}
 						<img
 							src="{PUBLIC_POCKETBASE_URL}/api/files/{banner.collectionName}/{banner.id}/{banner.image}"
-							class="w-full object-cover aspect-[2/3] md:aspect-[16/7]"
+							class="w-full object-cover aspect-[2/3] md:aspect-[16/5]"
 							width="2000"
 							height="1000"
 							draggable="false"

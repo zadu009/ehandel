@@ -8,47 +8,22 @@
 </script>
 
 <svelte:head>
-	<title>SwiftMarket Shop</title>
+	<title>E-Handel Shop</title>
 </svelte:head>
 
 <div class="flex justify-center items-center gap-6 m-auto p-5 flex-wrap">
 	<a class="hover:underline underline-offset-4" href="/shop/all">All</a>
-	<a class="hover:underline underline-offset-4" href="/shop/iphone-cases">iPhone Cases</a>
-	<a class="hover:underline underline-offset-4" href="/shop/airpods-cases">AirPods Cases</a>
-	<a class="hover:underline underline-offset-4" href="/shop/sleeves">Sleeves</a>
-	<a class="hover:underline underline-offset-4" href="/shop/cables">Cables</a>
-	<a class="hover:underline underline-offset-4" href="/shop/chargers">Chargers</a>
-	<a class="hover:underline underline-offset-4" href="/shop/accessories">Accessories</a>
+	<a class="hover:underline underline-offset-4" href="/shop/iphone-cases">E-Zigaretten</a>
+	<a class="hover:underline underline-offset-4" href="/shop/airpods-cases">E-Shisha</a>
+	<a class="hover:underline underline-offset-4" href="/shop/sleeves">Vapes</a>
+	<a class="hover:underline underline-offset-4" href="/shop/cables">Einweg E-Shisha</a>
+	<a class="hover:underline underline-offset-4" href="/shop/chargers">Dampfer</a>
 </div>
 
 <hr />
 
 <div class="flex flex-col py-8 px-3 lg:flex-row md:px-20">
-	<div class="mg-0 basis-1/6 flex flex-col pb-5 lg:mx-10">
-		<h1 class="uppercase font-bold text-xl pb-4">FILTERS</h1>
-		<hr />
-		<AccordionItem name="Price">
-			<p>TODO</p>
-		</AccordionItem>
-		<hr />
-		<AccordionItem name="Product type">
-			<p>TODO</p>
-		</AccordionItem>
-		<hr />
-		<AccordionItem name="Availability">
-			<p>TODO</p>
-		</AccordionItem>
-		<hr />
-	</div>
 	<div class="basis-5/6 flex flex-col">
-		<div class="flex justify-between pb-4">
-			<p>{products.length} products</p>
-			<div>
-				<span class="text-gray-700">Sort by</span>
-				<button>New</button>
-			</div>
-		</div>
-
 		<div class="grid grid-cols-2 gap-5 md:grid-cols-3">
 			{#each products as product}
 				<ProductItem
