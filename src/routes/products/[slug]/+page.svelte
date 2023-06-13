@@ -49,10 +49,10 @@
 		<h1 class="font-extrabold text-4xl mt-3">{product.name}</h1>
 		<div class="flex items-end gap-2">
 			{#if product.sale_price === 0}
-				<span class="text-3xl">${product.price}</span>
+				<span class="text-3xl">{product.price}€</span>
 			{:else}
-				<span class="text-3xl text-red-600">${product.sale_price}</span>
-				<span class="text-xl text-gray-600 line-through">${product.price}</span>
+				<span class="text-3xl text-red-600">{product.sale_price}€</span>
+				<span class="text-xl text-gray-600 line-through">{product.price}€</span>
 			{/if}
 		</div>
 

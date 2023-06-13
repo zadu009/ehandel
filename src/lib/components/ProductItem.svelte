@@ -33,8 +33,8 @@
 			{#if salePrice === 0}
 				<span>${price}</span>
 			{:else}
-				<span class="text-red-600">${salePrice}</span>
-				<span class="text-gray-600 line-through">${price}</span>
+				<span class="text-red-600">{salePrice}€</span>
+				<span class="text-gray-600 line-through">{price}€</span>
 			{/if}
 		</div>
 	</div>

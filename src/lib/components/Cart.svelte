@@ -110,13 +110,13 @@
 
 					<div class="flex flex-col grow">
 						{#if cartItem.salePrice === 0}
-							<p class="text-right">${Number(cartItem.price * cartItem.quantity).toFixed(2)}</p>
+							<p class="text-right">{Number(cartItem.price * cartItem.quantity).toFixed(2)}€</p>
 						{:else}
 							<p class="text-right text-red-600">
-								${Number(cartItem.salePrice * cartItem.quantity).toFixed(2)}
+								{Number(cartItem.salePrice * cartItem.quantity).toFixed(2)}€
 							</p>
 							<p class="text-right text-gray-600 line-through">
-								${Number(cartItem.price * cartItem.quantity).toFixed(2)}
+								{Number(cartItem.price * cartItem.quantity).toFixed(2)}€
 							</p>
 						{/if}
 					</div>
