@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>SwiftMarket</title>
+	<title>E-Handel</title>
 </svelte:head>
 
 {#if banners.length !== 0}
@@ -21,7 +21,7 @@
 		<div class="grid lg:grid-cols-2 gap-6 xl:gap-12 justify-center">
 			<div class="mb-6 lg:mb-0">
 				<h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight">
-					Onlineshop für VAPES
+					Onlineshop für VAPES!
 				</h1>
 				<p class="mt-4 text-lg lg:pl-3">
 					Vapes sind kein Hype, sie sind eine Passion! Wenn du schon auf den Geschmack von Einweg

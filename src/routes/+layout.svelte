@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>SwiftMarket</title>
+	<title>E-Handel</title>
 
 	<meta
 		name="description"
