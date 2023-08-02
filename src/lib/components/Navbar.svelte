@@ -16,6 +16,7 @@
 				<a class="hover:underline underline-offset-4" href="#!">Kontakt</a>
 			</div>
 			<div class="flex mx-5 gap-6">
+				<a class="mx-5 font-extrabold text-xl" href="/">Register</a>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
