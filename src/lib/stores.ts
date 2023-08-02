@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
+
 export const cartItemsStore = writable(getStorePersistance('cartItemsStore'));
 
 cartItemsStore.subscribe((val) => {

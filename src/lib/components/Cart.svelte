@@ -7,6 +7,8 @@
 	import { onMount } from 'svelte';
 	import { loadStripe } from '@stripe/stripe-js/pure';
 	import { PUBLIC_STRIPE_KEY } from '$env/static/public';
+	import { currentUser } from '$lib/stores/user';
+	import { goto } from '$app/navigation';
 
 	let stripe: any = null;
 
@@ -33,20 +35,12 @@
 	});
 
 	async function handlePayment() {
-		const res = await fetch('/order', {
-			method: 'POST',
-			body: JSON.stringify($cartItemsStore),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
-
-		if (res !== null) {
-			const response = await res.json();
-
-			await stripe?.redirectToCheckout({
-				sessionId: response.stripeSession.id
-			});
+		if ($currentUser) {
+			goto('/payment');
+			cartOpened = false;
+		} else {
+			goto('/login');
+			cartOpened = false;
 		}
 	}
 
@@ -103,7 +97,7 @@
 								on:click={() => removeFromCart(cartItem.slug)}
 								class="font-light hover:underline"
 							>
-								Remove
+								Entfernen
 							</button>
 						</div>
 					</div>
@@ -129,18 +123,18 @@
 				class="w-full h-12 text-black font-bold transition-colors duration-150 bg-yellow-300 focus:shadow hover:bg-yellow-500"
 				on:click={() => handlePayment()}
 			>
-				Checkout ${checkoutPrice}
+				Zur Kasse {checkoutPrice}€
 			</button>
 		</div>
 	{:else}
 		<div class="flex flex-col justify-center h-full">
-			<p class="text-center">Your cart is empty</p>
+			<p class="text-center">Dein Einkaufskorb ist leer.</p>
 			<div class="px-10 py-10">
 				<a href="/shop/all" target="_self">
 					<button
 						class="w-full h-12 text-black font-bold transition-colors duration-150 bg-yellow-300 focus:shadow hover:bg-yellow-500"
 					>
-						Start shopping
+						Jetzt einkaufen
 					</button>
 				</a>
 			</div>
