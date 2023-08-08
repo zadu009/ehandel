@@ -31,3 +31,15 @@ export const handle = (async ({ event, resolve }) => {
 	)
 	return response
 }) satisfies Handle;
+
+export async function handleFetch({ request, fetch }) {
+    if (request.url.startsWith('https://ehandel.vercel.app/')) {
+        // clone the original request, but change the URL
+        request = new Request(
+            request.url.replace('https://ehandel.vercel.app/', 'https://mailservice-production.up.railway.app/'),
+            request
+        );
+    }
+
+    return fetch(request);
+}
