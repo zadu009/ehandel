@@ -7,7 +7,8 @@ export default defineConfig({
             '/api': {
                 target: 'https://mailservice-production.up.railway.app',
                 rewrite: (path) => path.replace(/^\/api/, ''),
-                changeOrigin: true
+                changeOrigin: true,
+				secure: false,
             }
         }
     },
