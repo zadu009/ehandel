@@ -15,13 +15,13 @@
         {
             "source": "ehandel.vercel.app/api/:path(.*)",
             "destination": "mailservice-production.up.railway.app/:path"
-        }
+        },
         {
             "source": "/ehandel.vercel.app/api/:path(.*)",
             "destination": "mailservice-production.up.railway.app/:path"
-        }
+        },
         {
-            "source": "ehandel.vercel.app/api:path(.*)",
+            "source": "/api:path(.*)",
             "destination": "mailservice-production.up.railway.app/:path"
         }
     ]
