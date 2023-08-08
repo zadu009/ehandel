@@ -1,27 +1,31 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { emptyCart } from '$lib/stores';
-	import { cartItemsStore, removeFromCart, type CartItem } from '$lib/stores';
-
-	const url = $page.url;
-	emptyCart();
+	import { emptyCart, type CartItem } from '$lib/stores';
+	import { cartItemsStore } from '$lib/stores';
 	import { onMount } from 'svelte';
-
+	const url = $page.url;
 	onMount(() => {
 		getOrders();
+		emptyCart();
 		return () => console.log('On destroy...');
 	});
 
+	let cartItemsValue: CartItem[];
+	let orders: CartItem[];
 	let recipient = 's.durrani@web.de';
 	let msgBody = 'hallo wie Gehts?';
 	let subject = 'Ihre Bestellung von Svelte Ehandel';
 	export async function getOrders() {
+		const unsubscribe = cartItemsStore.subscribe((value) => {
+			cartItemsValue = value;
+		});
 		const res = await fetch('/api/sendMail', {
 			method: 'POST',
 			body: JSON.stringify({
 				recipient,
 				msgBody,
-				subject
+				subject,
+				orders: $cartItemsStore
 			}),
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8'

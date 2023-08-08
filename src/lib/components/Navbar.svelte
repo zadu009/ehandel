@@ -9,8 +9,8 @@
 	let cartOpened = false;
 </script>
 
-<nav class="sticky top-0 z-10 bg-[#282828] text-white">
-	<div class="mx-auto max-w-7xl mx-auto">
+<nav class="bg-[#282828] text-white">
+	<div class="mx-auto lg:px-8">
 		<div class="flex justify-between items-center py-4">
 			<div>
 				<a class="mx-5 font-extrabold text-xl" href="/">E-Handel</a>
@@ -18,43 +18,24 @@
 			<div class="flex items-center gap-6 m-auto">
 				<a class="hover:underline underline-offset-4" href="/shop/all">Shop</a>
 				<a class="hover:underline underline-offset-4" href="#!">Kontakt</a>
+				{#if $currentUser}
+					<form
+						method="POST"
+						action="/logout"
+						use:enhance={() => {
+							return async ({ result }) => {
+								pb.authStore.clear();
+								await applyAction(result);
+							};
+						}}
+					>
+						<button>Log out</button>
+					</form>
+				{:else}
+					<a class="hover:underline underline-offset-4" href="/login">Login</a>
+				{/if}
 			</div>
 			<div class="flex mx-5 gap-6">
-				<ul class="menu menu-horizontal">
-					{#if $currentUser}
-						<li><a href="/">{$currentUser.email}</a></li>
-						<li>
-							<form
-								method="POST"
-								action="/logout"
-								use:enhance={() => {
-									return async ({ result }) => {
-										pb.authStore.clear();
-										await applyAction(result);
-									};
-								}}
-							>
-								<button>Log out</button>
-							</form>
-						</li>
-					{/if}
-				</ul>
-				<button class="relative" aria-label="Cart" on:click={() => goto('/login')}>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-6 h-6"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-						/>
-					</svg>
-				</button>
 				<button class="relative" aria-label="Cart" on:click={() => (cartOpened = !cartOpened)}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

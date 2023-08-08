@@ -1,14 +1,17 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
+import { defineConfig } from 'vite';
 
-const config: UserConfig = {
-	plugins: [sveltekit()],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	optimizeDeps: {
-		include: ['svelte-carousel']
-	}
-};
+export default defineConfig({
+    server: {
+        proxy: {
+            '/api': {
+                target: 'https://mailservice-production.up.railway.app',
+                rewrite: (path) => path.replace(/^\/api/, ''),
+                changeOrigin: true
+            }
+        }
+    },
+	plugins: [sveltekit()]
+});
 
-export default config;
