@@ -2,6 +2,32 @@
 	import { applyAction, enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { pb } from '$lib/pocketbase';
+	import { cartItemsStore } from '$lib/stores';
+	import type { CartItem } from '$lib/stores';
+
+	let cartItemsValue: CartItem[];
+	let orders: CartItem[];
+	let recipient = 's.durrani@web.de';
+	let msgBody = 'hallo wie Gehts?';
+	let subject = 'Ihre Bestellung von Svelte Ehandel';
+	export async function getOrders() {
+		const unsubscribe = cartItemsStore.subscribe((value) => {
+			cartItemsValue = value;
+		});
+		const res = await fetch('/api/sendMail', {
+			method: 'POST',
+			body: JSON.stringify({
+				recipient,
+				msgBody,
+				subject,
+				orders: $cartItemsStore
+			}),
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8'
+			}
+		});
+		const data = await res.json();
+	}
 </script>
 
 <svelte:head>
@@ -35,7 +61,7 @@
 					</label>
 				</form>
 				<button
-					on:click={() => goto('/order')}
+					on:click={getOrders}
 					class="bg-yellow-300 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded"
 					>Jetzt Kaufen</button
 				>
