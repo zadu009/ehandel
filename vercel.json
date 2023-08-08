@@ -11,6 +11,10 @@
         {
             "source": "/api/:path(.*)",
             "destination": "mailservice-production.up.railway.app/:path"
+        },
+        {
+            "source": "/api/:path(.*)",
+            "destination": "mailservice-production.up.railway.app/:path"
         }
     ]
 }

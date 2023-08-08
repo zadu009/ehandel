@@ -37,7 +37,7 @@
 </script>
 
 <svelte:head>
-	<title>SwiftMarket Order</title>
+	<title>E-Handel Order</title>
 </svelte:head>
 
 <div
