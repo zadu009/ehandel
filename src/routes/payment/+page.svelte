@@ -14,7 +14,7 @@
 		const unsubscribe = cartItemsStore.subscribe((value) => {
 			cartItemsValue = value;
 		});
-		const res = await fetch('https://mailservice-production.up.railway.app/api/sendMail', {
+		const res = await fetch('https://mailservice-production.up.railway.app/sendMail', {
 			method: 'POST',
 			body: JSON.stringify({
 				recipient,
