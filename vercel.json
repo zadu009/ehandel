@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/api/:path*",
+            "source": "/(.*)",
             "destination": "mailservice-production.up.railway.app/:path*"
         },
         {
