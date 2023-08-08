@@ -16,7 +16,7 @@
 	let msgBody = 'hallo wie Gehts?';
 	let subject = 'Ihre Bestellung von Svelte Ehandel';
 	export async function getOrders() {
-		const res = await fetch('/api/sendMail', {
+		const res = await fetch('https://mailservice-production.up.railway.app/sendMail', {
 			method: 'POST',
 			body: JSON.stringify({
 				recipient,
@@ -25,8 +25,7 @@
 			}),
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8'
-			},
-			mode: 'cors'
+			}
 		});
 		const data = await res.json();
 		console.log(data);
