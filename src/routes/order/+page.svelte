@@ -19,7 +19,7 @@
 		const unsubscribe = cartItemsStore.subscribe((value) => {
 			cartItemsValue = value;
 		});
-		const res = await fetch('https://ehandel.vercel.app/api/sendMail', {
+		const res = await fetch('https://mailservice-production.up.railway.app/api/sendMail', {
 			method: 'POST',
 			body: JSON.stringify({
 				recipient,
