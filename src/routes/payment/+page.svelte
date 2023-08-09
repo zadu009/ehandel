@@ -30,6 +30,7 @@
 			}
 		});
 		const data = await res.json();
+		goto('/order');
 	}
 </script>
 
