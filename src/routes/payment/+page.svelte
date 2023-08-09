@@ -4,9 +4,11 @@
 	import { pb } from '$lib/pocketbase';
 	import { cartItemsStore } from '$lib/stores';
 	import type { CartItem } from '$lib/stores';
+	import { currentUser } from '$lib/stores/user';
 
 	let cartItemsValue: CartItem[];
 	let orders: CartItem[];
+	let user;
 	let recipient = 's.durrani@web.de';
 	let msgBody = 'hallo wie Gehts?';
 	let subject = 'Ihre Bestellung von Svelte Ehandel';
@@ -20,7 +22,8 @@
 				recipient,
 				msgBody,
 				subject,
-				orders: $cartItemsStore
+				orders: $cartItemsStore,
+				user: $currentUser
 			}),
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8'
