@@ -29,7 +29,7 @@
 				'Content-Type': 'application/json; charset=utf-8'
 			}
 		});
-		const data = await res.json();
+		goto('/order');
 	}
 </script>
 
