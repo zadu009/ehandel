@@ -13,11 +13,11 @@
 
 <div class="flex justify-center items-center gap-6 m-auto p-5 flex-wrap">
 	<a class="hover:underline underline-offset-4" href="/shop/all">All</a>
-	<a class="hover:underline underline-offset-4" href="/shop/iphone-cases">E-Zigaretten</a>
-	<a class="hover:underline underline-offset-4" href="/shop/airpods-cases">E-Shisha</a>
-	<a class="hover:underline underline-offset-4" href="/shop/sleeves">Vapes</a>
-	<a class="hover:underline underline-offset-4" href="/shop/cables">Einweg E-Shisha</a>
-	<a class="hover:underline underline-offset-4" href="/shop/chargers">Dampfer</a>
+	<a class="hover:underline underline-offset-4" href="/shop/smok">SMOK</a>
+	<a class="hover:underline underline-offset-4" href="/shop/187vapes">187 VAPES</a>
+	<a class="hover:underline underline-offset-4" href="/shop/187box">187 BOX</a>
+	<a class="hover:underline underline-offset-4" href="/shop/elfbar">ELFBAR</a>
+	<a class="hover:underline underline-offset-4" href="/shop/hqd">HQD</a>
 </div>
 
 <hr />

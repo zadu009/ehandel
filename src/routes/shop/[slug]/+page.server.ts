@@ -20,9 +20,10 @@ export const load = (async ({ params, locals }) => {
 			sort: '-created'
 		});
 
-		return structuredClone(productsRecords);
+		return JSON.parse(JSON.stringify(productsRecords));
 	} catch (e) {
 		console.log(`Couldnt load page /shop/${params.slug}`);
+		console.log(e);
 		throw error(500, {
 			message: 'Couldnt load this page'
 		});
