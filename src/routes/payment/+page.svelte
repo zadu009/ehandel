@@ -19,7 +19,7 @@
 		const res = await fetch('https://mailservice-production.up.railway.app/sendMail', {
 			method: 'POST',
 			body: JSON.stringify({
-				recipient,
+				recipient: $currentUser?.email,
 				msgBody,
 				subject,
 				orders: $cartItemsStore,
