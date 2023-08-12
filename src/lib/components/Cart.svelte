@@ -59,7 +59,7 @@
 	<div class="flex items-center justify-between mx-5 py-4">
 		<h1 class="uppercase font-bold text-xl">
 			{cartItemsValue.length}
-			{cartItemsValue.length === 1 ? 'item' : 'items'}
+			{cartItemsValue.length === 1 ? 'Artikel' : 'Artikel'}
 		</h1>
 
 		<button on:click={() => (cartOpened = !cartOpened)}>
@@ -104,13 +104,24 @@
 
 					<div class="flex flex-col grow">
 						{#if cartItem.salePrice === 0}
-							<p class="text-right">{Number(cartItem.price * cartItem.quantity).toFixed(2)}€</p>
+							<p class="text-right">
+								{Number(cartItem.price * cartItem.quantity).toLocaleString(undefined, {
+									minimumFractionDigits: 2,
+									maximumFractionDigits: 2
+								})}€
+							</p>
 						{:else}
 							<p class="text-right text-red-600">
-								{Number(cartItem.salePrice * cartItem.quantity).toFixed(2)}€
+								{Number(cartItem.salePrice * cartItem.quantity).toLocaleString(undefined, {
+									minimumFractionDigits: 2,
+									maximumFractionDigits: 2
+								})}€
 							</p>
 							<p class="text-right text-gray-600 line-through">
-								{Number(cartItem.price * cartItem.quantity).toFixed(2)}€
+								{Number(cartItem.price * cartItem.quantity).toLocaleString(undefined, {
+									minimumFractionDigits: 2,
+									maximumFractionDigits: 2
+								})}€
 							</p>
 						{/if}
 					</div>
@@ -123,7 +134,10 @@
 				class="w-full h-12 text-black font-bold transition-colors duration-150 bg-yellow-300 focus:shadow hover:bg-yellow-500"
 				on:click={() => handlePayment()}
 			>
-				Zur Kasse {checkoutPrice}€
+				Zur Kasse {checkoutPrice.toLocaleString(undefined, {
+					minimumFractionDigits: 2,
+					maximumFractionDigits: 2
+				})}€
 			</button>
 		</div>
 	{:else}

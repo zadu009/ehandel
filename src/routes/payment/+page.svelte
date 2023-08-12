@@ -60,7 +60,7 @@
 					}}
 				>
 					<label>
-						<input type="radio" name="amount" /> Vorkasse
+						<input type="radio" name="amount" value="vorkasse" checked="checked" /> Vorkasse
 					</label>
 				</form>
 				<button

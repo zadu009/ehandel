@@ -31,10 +31,25 @@
 		<a href={link}>{title}</a>
 		<div class="flex justify-center gap-3">
 			{#if salePrice === 0}
-				<span>${price}</span>
+				<span
+					>${price.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}</span
+				>
 			{:else}
-				<span class="text-red-600">{salePrice}€</span>
-				<span class="text-gray-600 line-through">{price}€</span>
+				<span class="text-red-600"
+					>{salePrice.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}€</span
+				>
+				<span class="text-gray-600 line-through"
+					>{price.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}€</span
+				>
 			{/if}
 		</div>
 	</div>

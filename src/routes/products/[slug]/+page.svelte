@@ -49,29 +49,44 @@
 		<h1 class="font-extrabold text-4xl mt-3">{product.name}</h1>
 		<div class="flex items-end gap-2">
 			{#if product.sale_price === 0}
-				<span class="text-3xl">{product.price}€</span>
+				<span class="text-3xl"
+					>{product.price.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}€</span
+				>
 			{:else}
-				<span class="text-3xl text-red-600">{product.sale_price}€</span>
-				<span class="text-xl text-gray-600 line-through">{product.price}€</span>
+				<span class="text-3xl text-red-600"
+					>{product.sale_price.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}€</span
+				>
+				<span class="text-xl text-gray-600 line-through"
+					>{product.price.toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+						maximumFractionDigits: 2
+					})}€</span
+				>
 			{/if}
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<p>Description</p>
+			<p>Beschreibung</p>
 			<p class="text-gray-600">
 				{product.description}
 			</p>
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<p>Quantity</p>
+			<p>Anzahl</p>
 			<QuantityInput bind:count={quantity} />
 		</div>
 		<button
 			class="w-full h-12 px-6 text-black font-bold transition-colors duration-150 bg-yellow-300 focus:shadow hover:bg-yellow-500"
 			on:click={() => prepareToCart()}
 		>
-			Add to cart
+			In den Warenkorb
 		</button>
 	</div>
 </div>
